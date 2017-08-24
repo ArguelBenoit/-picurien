@@ -1,32 +1,30 @@
 const gulp = require('gulp');
 const less = require('gulp-less');
-var browserify = require('browserify');
-var babelify = require('babelify');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
+const browserify = require('browserify');
+const babelify = require('babelify');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
 
-const components =
-  'leftpanel',
-  'maincontent'
-];
-
-const types = {
-  less: ['./assets/less/', './css/'], // key: [source, target]
+const src = {
+  less: ['./assets/less/', './'], // key: [source, target]
   js: ['./assets/js/', './js/']
 };
 
 // <--------------------------------------->
 
 gulp.task('less', () => {
-  return gulp.src(types.less[0] + '*.less')
+  return gulp.src(src.less[0] + '*.less')
     .pipe(less())
-    .pipe(gulp.dest(types.less[1]));
+    .pipe(gulp.dest(src.less[1]));
 });
 
+const jsFiles = [
+  'common'
+];
 gulp.task('js', () => {
-  components.forEach( e => {
-    var b = browserify({
-      entries: types.js[0] + e + '.js',
+  jsFiles.forEach( e => {
+    let b = browserify({
+      entries: src.js[0] + e + '.js',
       debug: true,
       transform: [babelify.configure({
         presets: ['es2015']
@@ -35,17 +33,17 @@ gulp.task('js', () => {
     return b.bundle()
       .pipe(source( e + '.js' ))
       .pipe(buffer())
-      .pipe(gulp.dest(types.js[1]));
+      .pipe(gulp.dest(src.js[1]));
   });
 });
 
 // <--------------------------------------->
 
 gulp.task('watch-less' , () => {
-  gulp.watch(types.less[0] + '**', ['less']);
+  gulp.watch(src.less[0] + '**', ['less']);
 });
 gulp.task('watch-js' , () => {
-  gulp.watch(types.js[0] + '**', ['js']);
+  gulp.watch(src.js[0] + '**', ['js']);
 });
 
 gulp.task('dev', ['less', 'js', 'watch-less', 'watch-js']);
