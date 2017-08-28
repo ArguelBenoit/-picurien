@@ -18,23 +18,18 @@ gulp.task('less', () => {
     .pipe(gulp.dest(src.less[1]));
 });
 
-const jsFiles = [
-  'common'
-];
 gulp.task('js', () => {
-  jsFiles.forEach( e => {
-    let b = browserify({
-      entries: src.js[0] + e + '.js',
-      debug: true,
-      transform: [babelify.configure({
-        presets: ['es2015']
-      })]
-    });
-    return b.bundle()
-      .pipe(source( e + '.js' ))
-      .pipe(buffer())
-      .pipe(gulp.dest(src.js[1]));
+  let b = browserify({
+    entries: src.js[0] + 'init.js',
+    debug: true,
+    transform: [babelify.configure({
+      presets: ['es2015']
+    })]
   });
+  return b.bundle()
+    .pipe(source( 'index.js' ))
+    .pipe(buffer())
+    .pipe(gulp.dest(src.js[1]));
 });
 
 // <--------------------------------------->

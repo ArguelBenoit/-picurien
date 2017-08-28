@@ -1,17 +1,7 @@
 import $ from 'jquery';
 
-// const customScrollBar = (e) => {
-//   const el = document.querySelector(e);
-//   el.style.display = 'none';
-// };
-//
-//
-//
-// $(document).ready(() => {
-//   customScrollBar('#leftpanel');
-// });
 
-const panelGestion = {
+const panelGestures = {
   state: {
     open: false,
     size: $(window).width()
@@ -55,25 +45,4 @@ const panelGestion = {
   }
 };
 
-$(document).ready(() => {
-  panelGestion.panelsSize();
-  $(window).resize(() => panelGestion.panelsSize());
-
-  setTimeout(() => $('#whitesail').fadeOut(800), 250);
-
-  $('#leftpanel ul li a').click(e => {
-    const link = e.target.href;
-    if ($(window).width() >= 1000) {
-      $('#whitesail').fadeIn(800);
-      setTimeout( () => window.location.href = link, 800);
-    } else {
-      panelGestion.buttonClicked();
-      setTimeout( () => $('#whitesail').fadeIn(800), 400);
-      setTimeout( () => window.location.href = link, 1200);
-    }
-    e.preventDefault();
-  });
-
-  $('#closebutton').click(() => panelGestion.buttonClicked());
-  $('.rightpanel').click(() => panelGestion.state.open ? panelGestion.buttonClicked() : '' );
-});
+export default panelGestures;

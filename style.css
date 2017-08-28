@@ -15,6 +15,7 @@ body {
   margin: 0 0;
   padding: 0 0;
   background: #f7f7f7;
+  overflow: hidden;
 }
 #whitesail {
   z-index: 100;
@@ -28,7 +29,6 @@ body {
   z-index: 3;
   position: fixed;
   height: 100%;
-  overflow: auto;
   color: #ddd;
   background: #222;
   transition-duration: 500ms;
@@ -98,4 +98,5 @@ body {
   z-index: 1;
   transition-duration: 250ms;
   padding-top: 70px;
+  height: 100%;
 }
