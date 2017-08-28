@@ -6,7 +6,96 @@
   Author: Benoit Arguel
   Author URI: **
   Tags: **
-
   License: MIT
   License URI: http://opensource.org/licenses/mit-license.php
 */
+html,
+body {
+  height: 100%;
+  margin: 0 0;
+  padding: 0 0;
+  background: #f7f7f7;
+}
+#whitesail {
+  z-index: 100;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  pointer-events: none;
+}
+#leftpanel {
+  z-index: 3;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  color: #ddd;
+  background: #222;
+  transition-duration: 500ms;
+}
+#leftpanel a {
+  color: #ddd;
+  text-decoration: none;
+}
+#leftpanel ul li {
+  list-style: none;
+}
+#leftpanel .header {
+  text-align: center;
+}
+#leftpanel .header .main-menu ul li a {
+  transition-duration: 100ms;
+  background: #ff8877;
+  padding: 3px 15px;
+  font-size: 18px;
+  font-weight: bolder;
+  color: #222;
+  border-left: 0px solid black;
+}
+#leftpanel .header .main-menu ul li a:hover {
+  border-left: 6px solid black;
+}
+#leftpanel .leftpanel-section {
+  padding-top: 50px;
+}
+#leftpanel .container-widget {
+  padding: 12px 0;
+}
+#leftpanel .container-widget .widget-title {
+  font-size: 25px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ff8877;
+}
+#leftpanel .container-widget ul li a {
+  transition-duration: 0.1s;
+  font-size: 18px;
+  background: transparent;
+  color: #ddd;
+  font-weight: lighter;
+  padding: 0 0;
+  border-left: 0px solid black;
+}
+#leftpanel .container-widget ul li a:hover {
+  background: #ff8877;
+  color: #222;
+  font-weight: bolder;
+  padding: 0 4px;
+  border-left: 3px solid black;
+}
+#closebutton {
+  z-index: 2;
+  position: fixed;
+  display: none;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  height: 26px;
+  width: 36px;
+  background: #f7f7f7;
+  border: 5px solid #f7f7f7;
+}
+.rightpanel {
+  z-index: 1;
+  transition-duration: 250ms;
+  padding-top: 70px;
+}

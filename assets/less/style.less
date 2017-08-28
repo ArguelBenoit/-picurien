@@ -6,7 +6,103 @@
   Author: Benoit Arguel
   Author URI: **
   Tags: **
-
   License: MIT
   License URI: http://opensource.org/licenses/mit-license.php
 */
+
+@lighterGrey: #f7f7f7;
+@lightGrey: #ddd;
+@mediumGrey: #333;
+@darkGrey: #222;
+@lightOrange: #ff8877;
+
+
+html, body {
+  height: 100%;
+  margin: 0 0;
+  padding: 0 0;
+  background: @lighterGrey;
+}
+
+#whitesail {
+  z-index: 100;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  pointer-events: none;
+}
+
+#leftpanel {
+  z-index: 3;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  color: @lightGrey;
+  background: @darkGrey;
+  transition-duration: 500ms;
+  a {
+    color: @lightGrey;
+    text-decoration: none;
+  }
+  ul li { list-style: none; }
+  .header { text-align: center; }
+  .header .main-menu ul li a {
+    transition-duration: 100ms;
+    background: @lightOrange;
+    padding: 3px 15px;
+    font-size: 18px;
+    font-weight: bolder;
+    color: @darkGrey;
+    border-left: 0px solid black;
+    &:hover {
+      border-left: 6px solid black;
+    }
+  }
+  .leftpanel-section {
+    padding-top: 50px;
+  }
+  .container-widget {
+    padding: 12px 0;
+    .widget-title {
+      font-size: 25px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid @lightOrange;
+    }
+    ul li a {
+      transition-duration: 0.1s;
+      font-size: 18px;
+      background: transparent;
+      color: @lightGrey;
+      font-weight: lighter;
+      padding: 0 0;
+      border-left: 0px solid black;
+      &:hover {
+        background: @lightOrange;
+        color: @darkGrey;
+        font-weight: bolder;
+        padding: 0 4px;
+        border-left: 3px solid black;
+      }
+    }
+  }
+}
+
+#closebutton {
+  z-index: 2;
+  position: fixed;
+  display: none;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  height: 26px;
+  width: 36px;
+  background: @lighterGrey;
+  border: 5px solid @lighterGrey;
+}
+
+.rightpanel {
+  z-index: 1;
+  transition-duration: 250ms;
+  padding-top: 70px;
+}
