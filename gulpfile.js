@@ -7,7 +7,7 @@ const buffer = require('vinyl-buffer');
 
 const src = {
   less: ['./assets/less/', './'], // key: [source, target]
-  js: ['./assets/js/', './js/']
+  js: ['./assets/js/', './']
 };
 
 // <--------------------------------------->

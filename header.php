@@ -8,7 +8,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
 		<title><?php bloginfo('name'); ?></title>
-		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/index.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/index.js"></script>
 	</head>
 	<body>
 

@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import customScrollBar from './customScrollBar.js';
-import panelGestures from './panelGestures.js';
+import customScrollBar from './scrollBar.js';
+import panelGestures from './gestures.js';
 
 
 $(document).ready(() => {
@@ -12,8 +12,8 @@ $(document).ready(() => {
   // init
 
   panelGestures.panelsSize();
-  customScrollBar('#leftpanel', '#fff');
-  customScrollBar('.rightpanel', '#000');
+  customScrollBar('#leftpanel', 8, '#000', false);
+  customScrollBar('.rightpanel', 8, '#eee', true);
 
   // resize
 
