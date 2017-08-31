@@ -41,6 +41,7 @@ const panelGestures = {
         left: open ? 0 : '-88%'
       });
       $('.rightpanel').css('filter', open ? 'blur(10px)' : 'blur(0px)');
+      $('#header-mobile').css('filter', open ? 'blur(10px)' : 'blur(0px)');
     }
   }
 };

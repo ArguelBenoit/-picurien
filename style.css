@@ -14,8 +14,22 @@ body {
   height: 100%;
   margin: 0 0;
   padding: 0 0;
-  background: #f7f7f7;
-  overflow: hidden;
+  background: #f3f3f3;
+}
+html a,
+body a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: #ff8877;
+}
+html hr,
+body hr {
+  margin: 0 0;
+  margin-top: 6px;
+  padding: 0 0;
+  border: 0px;
+  height: 3px;
+  background: #ff8877;
 }
 #whitesail {
   z-index: 100;
@@ -66,6 +80,13 @@ body {
   margin-bottom: 30px;
   border-bottom: 1px solid #ff8877;
 }
+#leftpanel .container-widget ul li:before {
+  font-family: FontAwesome;
+  content: "\f105 ";
+  color: #e86f67;
+  font-size: 18px;
+  margin-right: 10px;
+}
 #leftpanel .container-widget ul li a {
   transition-duration: 0.1s;
   font-size: 18px;
@@ -82,22 +103,99 @@ body {
   padding: 0 4px;
   border-left: 3px solid black;
 }
-#closebutton {
+#header-mobile {
   z-index: 2;
+  transition-duration: 250ms;
   position: fixed;
+  width: 100%;
+  height: 48px;
+  box-shadow: 0px 0px 2px #bbb;
+  background: #f3f3f3;
   display: none;
-  top: 20px;
-  left: 20px;
+}
+@media screen and (max-width: 1000px) {
+  #header-mobile {
+    display: inherit;
+  }
+}
+#header-mobile a {
+  font-size: 30px;
+  text-align: right;
+  padding-right: 10px;
+  color: #999;
+  float: right;
+  font-weight: lighter;
+}
+#header-mobile #closebutton {
+  display: none;
   cursor: pointer;
   height: 26px;
   width: 36px;
-  background: #f7f7f7;
-  border: 5px solid #f7f7f7;
+  background: #f3f3f3;
+  border: 5px solid #f3f3f3;
+  position: absolute;
+  top: 6px;
+  left: 6px;
 }
 .rightpanel {
   z-index: 1;
-  float: right;
   transition-duration: 250ms;
   padding-top: 70px;
   height: 100%;
+}
+.article {
+  margin-bottom: 30px;
+  height: 200px;
+  box-shadow: 1px 1px 2px #aaa;
+  background: white;
+  display: flex;
+}
+.article .thumbnail {
+  float: left;
+  max-width: 200px;
+  min-width: 200px;
+  max-height: 200px;
+  overflow: hidden;
+  background: #e7e7e7;
+}
+.article .thumbnail img {
+  width: 200px;
+  height: 200px;
+}
+.article .content {
+  width: 100%;
+  height: 200px;
+  padding: 0 15px;
+}
+.article .content .main {
+  height: 165px;
+  width: 100%;
+  overflow: hidden;
+}
+.article .content .main .info {
+  color: #444;
+  float: left;
+  overflow: hidden;
+}
+.article .content .main .info .article-title {
+  font-size: 30px;
+  overflow: hidden;
+  font-weight: lighter;
+}
+.article .content .main .info .article-title a {
+  color: #444;
+}
+.article .content .secondary {
+  width: 100%;
+  height: 35px;
+  overflow: hidden;
+  color: #aaa;
+}
+.article .content .secondary .date {
+  float: left;
+  font-weight: bolder;
+}
+.article .content .secondary .category,
+.article .content .secondary .comment {
+  float: right;
 }

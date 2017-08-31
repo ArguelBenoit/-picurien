@@ -20,7 +20,7 @@ gulp.task('less', () => {
 
 gulp.task('js', () => {
   let b = browserify({
-    entries: src.js[0] + 'init.js',
+    entries: src.js[0] + 'index.js',
     debug: true,
     transform: [babelify.configure({
       presets: ['es2015']

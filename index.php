@@ -1,7 +1,10 @@
 
 <?php
 	get_header();
-	get_template_part('leftpanel');
-	get_template_part('articles');
+?>
+
+<?php get_template_part('loop'); ?>
+
+<?php
 	get_footer();
 ?>

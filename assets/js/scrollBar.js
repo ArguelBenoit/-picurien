@@ -3,6 +3,7 @@ import $ from 'jquery';
 
 const customScrollBar = (selector, width, color, offset) => {
 
+  // $('window').mousewheel(() => event.stopPropagation());
   const parent = $(selector);
   const child = $(selector).children();
   const scrollbarName = `scrollbar-${selector.substring(1, selector.length)}`;
@@ -12,22 +13,21 @@ const customScrollBar = (selector, width, color, offset) => {
   parent.css({ 'overflow': 'hidden' });
   child.css({ 'transition-duration': '300ms'});
 
+  parent.append(`<div class="customScrollBar" id="${scrollbarName}"></div>`);
+
   const init = () => {
 
     if (child.height() > parent.height()) {
-      let leftOffset = $(selector).offset().left;
-      parent.append(`<div class="customScrollBar" id="${scrollbarName}"></div>`);
       $(scrollbarId).css({
         position: 'absolute',
         transitionDuration: '0ms',
-        left: ( offset ? leftOffset : 0 ) + parent.width() - width,
+        left: ( offset ? $(selector).offset().left : 0 ) + parent.width() - width,
         height: parent.height() * (parent.height() / child.height()),
         background: color,
         width,
         top: 0,
         display: 'inherit'
       });
-
       parent.bind('mousewheel', evt => {
         level += (evt.originalEvent.wheelDelta)/2;
         if (level > 0) {

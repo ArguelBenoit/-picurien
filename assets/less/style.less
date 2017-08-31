@@ -10,19 +10,31 @@
   License URI: http://opensource.org/licenses/mit-license.php
 */
 
-@lighterGrey: #f7f7f7;
+@lighterGrey: #f3f3f3;
 @lightGrey: #ddd;
 @mediumGrey: #333;
 @darkGrey: #222;
 @lightOrange: #ff8877;
-
 
 html, body {
   height: 100%;
   margin: 0 0;
   padding: 0 0;
   background: @lighterGrey;
-  overflow: hidden;
+  // overflow: hidden;
+  a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: @lightOrange;
+  }
+  hr {
+    margin: 0 0;
+    margin-top: 6px;
+    padding: 0 0;
+    border: 0px;
+    height: 3px;
+    background: @lightOrange;
+  }
 }
 
 #whitesail {
@@ -69,6 +81,13 @@ html, body {
       margin-bottom: 30px;
       border-bottom: 1px solid @lightOrange;
     }
+    ul li:before {
+      font-family: FontAwesome;
+      content: "\f105 ";
+      color: #e86f67;
+      font-size: 18px;
+      margin-right: 10px;
+    }
     ul li a {
       transition-duration: 0.1s;
       font-size: 18px;
@@ -88,23 +107,96 @@ html, body {
   }
 }
 
-#closebutton {
+#header-mobile {
   z-index: 2;
+  transition-duration: 250ms;
   position: fixed;
-  display: none;
-  top: 20px;
-  left: 20px;
-  cursor: pointer;
-  height: 26px;
-  width: 36px;
+  width: 100%;
+  height: 48px;
+  box-shadow: 0px 0px 2px #bbb;
   background: @lighterGrey;
-  border: 5px solid @lighterGrey;
+  display: none;
+  @media screen and (max-width: 1000px) {
+    display: inherit;
+  }
+  a {
+    font-size: 30px;
+    text-align: right;
+    padding-right: 10px;
+    color: #999;
+    float: right;
+    font-weight: lighter;
+  }
+  #closebutton {
+    display: none;
+    cursor: pointer;
+    height: 26px;
+    width: 36px;
+    background: @lighterGrey;
+    border: 5px solid @lighterGrey;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+  }
 }
 
 .rightpanel {
   z-index: 1;
-  float: right;
   transition-duration: 250ms;
   padding-top: 70px;
   height: 100%;
+}
+
+.article {
+  margin-bottom: 30px;
+  height: 200px;
+  box-shadow: 1px 1px 2px #aaa;
+  background: white;
+  display: flex;
+  .thumbnail {
+    float: left;
+    max-width: 200px;
+    min-width: 200px;
+    max-height: 200px;
+    overflow: hidden;
+    background: #e7e7e7;
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  .content {
+    width: 100%;
+    height: 200px;
+    padding: 0 15px;
+    .main {
+      height: 165px;
+      width: 100%;
+      overflow: hidden;
+      .info {
+        color: #444;
+        float: left;
+        overflow: hidden;
+        .article-title {
+          font-size: 30px;
+          overflow: hidden;
+          font-weight: lighter;
+          a { color: #444; }
+        }
+      }
+    }
+    .secondary {
+      width: 100%;
+      height: 35px;
+      overflow: hidden;
+      color: #aaa;
+      .date {
+        float: left;
+        font-weight: bolder;
+      }
+      .category, .comment {
+        float: right;
+      }
+    }
+  }
 }

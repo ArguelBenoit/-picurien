@@ -15,6 +15,9 @@
        </div>
     </section>
     <!-- end -->
+    <!-- search form -->
+      <?php get_template_part('searchform'); ?>
+    <!-- end -->
     <!-- widgets zone -->
     <section id="widgets-zone" class="leftpanel-section">
       <?php dynamic_sidebar('widgets-zone'); ?>
