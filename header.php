@@ -16,8 +16,8 @@
 
 	<div id="whitesail"></div>
 
-	<div id="header-mobile">
-		<div id="closebutton" class="clicked">
+	<div class="header-mobile">
+		<div class="menubutton" class="clicked">
 			<svg height="26px" width="36px">
 				<g stroke="#bbb" stroke-width="2">
 					<line x1="0" y1="1" x2="26" y2="1"/>

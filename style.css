@@ -22,15 +22,6 @@ body a {
   font-weight: bolder;
   color: #ff8877;
 }
-html hr,
-body hr {
-  margin: 0 0;
-  margin-top: 6px;
-  padding: 0 0;
-  border: 0px;
-  height: 3px;
-  background: #ff8877;
-}
 #whitesail {
   z-index: 100;
   position: fixed;
@@ -39,7 +30,7 @@ body hr {
   background: #fff;
   pointer-events: none;
 }
-#leftpanel {
+.leftpanel {
   z-index: 3;
   position: fixed;
   height: 100%;
@@ -47,17 +38,17 @@ body hr {
   background: #222;
   transition-duration: 500ms;
 }
-#leftpanel a {
+.leftpanel a {
   color: #ddd;
   text-decoration: none;
 }
-#leftpanel ul li {
+.leftpanel ul li {
   list-style: none;
 }
-#leftpanel .header {
+.leftpanel .header {
   text-align: center;
 }
-#leftpanel .header .main-menu ul li a {
+.leftpanel .header .main-menu ul li a {
   transition-duration: 100ms;
   background: #ff8877;
   padding: 3px 15px;
@@ -66,28 +57,28 @@ body hr {
   color: #222;
   border-left: 0px solid black;
 }
-#leftpanel .header .main-menu ul li a:hover {
+.leftpanel .header .main-menu ul li a:hover {
   border-left: 6px solid black;
 }
-#leftpanel .leftpanel-section {
+.leftpanel .leftpanel-section {
   padding-top: 50px;
 }
-#leftpanel .container-widget {
+.leftpanel .container-widget {
   padding: 12px 0;
 }
-#leftpanel .container-widget .widget-title {
+.leftpanel .container-widget .widget-title {
   font-size: 25px;
   margin-bottom: 30px;
   border-bottom: 1px solid #ff8877;
 }
-#leftpanel .container-widget ul li:before {
+.leftpanel .container-widget ul li:before {
   font-family: FontAwesome;
   content: "\f105 ";
   color: #e86f67;
   font-size: 18px;
   margin-right: 10px;
 }
-#leftpanel .container-widget ul li a {
+.leftpanel .container-widget ul li a {
   transition-duration: 0.1s;
   font-size: 18px;
   background: transparent;
@@ -96,52 +87,55 @@ body hr {
   padding: 0 0;
   border-left: 0px solid black;
 }
-#leftpanel .container-widget ul li a:hover {
+.leftpanel .container-widget ul li a:hover {
   background: #ff8877;
   color: #222;
   font-weight: bolder;
   padding: 0 4px;
   border-left: 3px solid black;
 }
-#header-mobile {
+.header-mobile {
   z-index: 2;
   transition-duration: 250ms;
   position: fixed;
   width: 100%;
-  height: 48px;
-  box-shadow: 0px 0px 2px #bbb;
-  background: #f3f3f3;
+  height: 70px;
+  background: #fff;
   display: none;
 }
 @media screen and (max-width: 1000px) {
-  #header-mobile {
+  .header-mobile {
     display: inherit;
   }
 }
-#header-mobile a {
+.header-mobile a {
   font-size: 30px;
   text-align: right;
   padding-right: 10px;
   color: #999;
   float: right;
   font-weight: lighter;
+  padding: 10px 15px;
 }
-#header-mobile #closebutton {
+.header-mobile .menubutton {
   display: none;
   cursor: pointer;
   height: 26px;
   width: 36px;
-  background: #f3f3f3;
-  border: 5px solid #f3f3f3;
   position: absolute;
-  top: 6px;
-  left: 6px;
+  top: 22px;
+  left: 20px;
 }
 .rightpanel {
   z-index: 1;
   transition-duration: 250ms;
   padding-top: 70px;
   height: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .rightpanel {
+    padding-top: 140px;
+  }
 }
 .article {
   margin-bottom: 30px;
@@ -150,11 +144,19 @@ body hr {
   background: white;
   display: flex;
 }
+.article hr {
+  margin: 3px 0;
+  padding: 0 0;
+  border: 0px;
+  height: 3px;
+  background: #ff8877;
+}
 .article .thumbnail {
   float: left;
   max-width: 200px;
   min-width: 200px;
   max-height: 200px;
+  min-height: 200px;
   overflow: hidden;
   background: #e7e7e7;
 }
@@ -169,24 +171,23 @@ body hr {
 }
 .article .content .main {
   height: 165px;
-  width: 100%;
-  overflow: hidden;
-}
-.article .content .main .info {
   color: #444;
-  float: left;
   overflow: hidden;
 }
-.article .content .main .info .article-title {
+.article .content .main .article-title {
   font-size: 30px;
   overflow: hidden;
   font-weight: lighter;
+  height: 45px;
+  display: block;
 }
-.article .content .main .info .article-title a {
+.article .content .main .article-title a {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: #444;
 }
 .article .content .secondary {
-  width: 100%;
   height: 35px;
   overflow: hidden;
   color: #aaa;
@@ -198,4 +199,42 @@ body hr {
 .article .content .secondary .category,
 .article .content .secondary .comment {
   float: right;
+}
+@media screen and (max-width: 1000px) {
+  .article {
+    height: 100px;
+  }
+  .article hr {
+    display: none;
+  }
+  .article .thumbnail {
+    max-width: 100px;
+    min-width: 100px;
+    max-height: 100px;
+    min-height: 100px;
+  }
+  .article .thumbnail img {
+    width: 100px;
+    height: 100px;
+  }
+  .article .content {
+    height: 100px;
+  }
+  .article .content .main {
+    height: 65px;
+  }
+  .article .content .main .article-content {
+    display: none;
+  }
+  .article .content .main .article-title {
+    font-size: 20px;
+    overflow: hidden;
+    font-weight: lighter;
+  }
+  .article .content .secondary {
+    height: 35px;
+  }
+  .article .content .secondary .category {
+    display: none;
+  }
 }

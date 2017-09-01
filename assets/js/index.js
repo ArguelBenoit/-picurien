@@ -12,8 +12,7 @@ $(document).ready(() => {
   // init
 
   panelGestures.panelsSize();
-  customScrollBar('#leftpanel', 8, '#000', false);
-  // customScrollBar('.rightpanel', 8, '#eee', true);
+  customScrollBar('.leftpanel', 8, '#000', false);
 
   // resize
 
@@ -23,7 +22,7 @@ $(document).ready(() => {
 
   // click actions
 
-  $('#closebutton').click(() => panelGestures.buttonClicked());
+  $('.menubutton').click(() => panelGestures.buttonClicked());
   $('.rightpanel').click(() => panelGestures.state.open ? panelGestures.buttonClicked() : '' );
 
   $('a').click( e => {

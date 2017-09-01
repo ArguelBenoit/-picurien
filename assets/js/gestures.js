@@ -12,8 +12,8 @@ const panelGestures = {
     let { size } = this.state;
     if (size >= 1000) {
       $('.rightpanel').css('filter', 'blur(0px)');
-      $('#closebutton').css('display', 'none');
-      $('#leftpanel').css({
+      $('.menubutton').css('display', 'none');
+      $('.leftpanel').css({
         width: 380,
         left: 0
       });
@@ -22,8 +22,8 @@ const panelGestures = {
         marginLeft: 380
       });
     } else if (size < 1000) {
-      $('#closebutton').css('display', 'inherit');
-      $('#leftpanel').css({
+      $('.menubutton').css('display', 'inherit');
+      $('.leftpanel').css({
         width: '88%',
         left: open ? 0 : '-88%'
       });
@@ -37,11 +37,11 @@ const panelGestures = {
     this.state.open = !this.state.open;
     const { size, open } = this.state;
     if (size < 1000) {
-      $('#leftpanel').css({
+      $('.leftpanel').css({
         left: open ? 0 : '-88%'
       });
       $('.rightpanel').css('filter', open ? 'blur(10px)' : 'blur(0px)');
-      $('#header-mobile').css('filter', open ? 'blur(10px)' : 'blur(0px)');
+      $('.header-mobile').css('filter', open ? 'blur(10px)' : 'blur(0px)');
     }
   }
 };

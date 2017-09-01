@@ -1,6 +1,6 @@
 
 
-<div id="leftpanel">
+<div class="leftpanel">
   <div class="container">
     <!-- header -->
     <section class="leftpanel-section header">

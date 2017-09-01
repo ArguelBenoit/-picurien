@@ -18,14 +18,12 @@
 					<div class="content">
 
 						<div class="row main">
-							<div class="info">
-								<span class="article-title">
-									<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-								</span>
-                <hr style="width: <?php echo(rand(40,240)); ?>px"/>
-								<p class="article-content">
-									<?php the_excerpt(); ?>
-								</p>
+							<span class="article-title">
+								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+							</span>
+              <hr style="width: <?php echo(rand(40,180)); ?>px"/>
+							<div class="article-content">
+								<?php the_excerpt(); ?>
 							</div>
 						</div>
 						<div class="row secondary">
@@ -33,7 +31,6 @@
 								<?php the_time('d/m/Y') ?>
 							</span>
 							<span class="comment">
-								&nbsp;|&nbsp;
 								<?php comments_number( '0', '1', '%' ); ?>
 								<i class="fa fa fa-comments" aria-hidden="true"></i>
 							</span>
@@ -42,7 +39,7 @@
 								if ( $categories_list) :
 							?>
 								<span class="category">
-									<?php echo $categories_list . '&nbsp;&nbsp;<i class="fa fa-folder"></i>&nbsp;'; ?>
+									<?php echo $categories_list . '&nbsp;&nbsp;<i class="fa fa-folder"></i>&nbsp;&nbsp;|&nbsp;'; ?>
 								</span>
 							<?php endif; ?>
 						</div>
