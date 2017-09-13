@@ -1,0 +1,27 @@
+server {
+	listen 80;
+
+	root /home/benoit/Bureau/wordpress;
+	server_name php;
+
+	index index.html index.htm index.nginx-debian.html index.php;
+
+   location / {
+        try_files $uri $uri/ /index.html /index.php;
+    }
+ 
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+        # fastcgi_pass 127.0.0.1:9000;
+ 
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+    }
+ 
+    location ~* /(.git|cache|bin|logs|backups|tests)/.*$ { return 403; }
+    location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|php|pl|py|cgi|twig|sh|bat)$ { return 403; }
+    location ~* /user/.*\.(txt|md|yaml|php|pl|py|cgi|twig|sh|bat)$ { return 403; }
+    location ~ /(LICENSE.txt|composer.lock|composer.json|nginx.conf|web.config|htaccess.txt|\.htaccess) { return 403; }
+}
