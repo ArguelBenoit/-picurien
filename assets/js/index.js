@@ -6,13 +6,12 @@ import panelGestures from './gestures.js';
 $(document).ready(() => {
 
   // after loading
-
   setTimeout(() => $('#whitesail').fadeOut(800), 250);
 
   // init
 
   panelGestures.panelsSize();
-  customScrollBar('.leftpanel', 8, '#000', false);
+  customScrollBar('.leftpanel');
 
   // resize
 

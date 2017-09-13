@@ -19,4 +19,14 @@
 
   add_theme_support( 'post-thumbnails' );
 
+  add_theme_support( 'custom-header', array(
+    'height' => 400,
+    'width' => 400,
+    'header-selector' => '.img-header',
+    'default-image'	=> get_template_directory_uri() . '/images/header.jpg',
+  	'header-text' => false,
+    'flex-height' => false,
+    'flex-width' => false,
+  ));
+
 ?>

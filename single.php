@@ -3,24 +3,29 @@
 	get_header();
 ?>
 
-<h2>
-	<?php the_title(); ?>
-</h2>
-
 <?php if (have_posts()) : ?>
-	<?php while (have_posts()) : the_post(); ?>
-		<div class="post">
-			<p class="post-info">
-				Posté le <?php the_date(); ?> dans <?php the_category(', '); ?> par <?php the_author(); ?>.
-			</p>
-			<div class="post-content">
-				<?php the_content(); ?>
+	<div class="container not-loop">
+		<section>
+			<h1>
+				<?php the_title(); ?>
+			</h1>
+			<div class="post">
+				<div class="post-content">
+					<?php the_content(); ?>
+				</div>
+				<?php get_template_part('templates/list-info'); ?>
 			</div>
-			<div class="post-comments">
-				<?php comments_template(); ?>
-			</div>
-		</div>
-	<?php endwhile; ?>
+		</section>
+		<section>
+			<?php
+				$commentActivated = comments_open();
+				if ( $commentActivated ) : ?>
+				<div class="post-comments">
+					<?php comments_template(); ?>
+				</div>
+			<?php endif; ?>
+		</section>
+	</div>
 <?php endif; ?>
 
 <?php

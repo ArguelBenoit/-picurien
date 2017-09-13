@@ -3,7 +3,9 @@
 	get_header();
 ?>
 
-<?php get_template_part('loop'); ?>
+<div class="container">
+	<?php get_template_part('templates/loop'); ?>
+</div>
 
 <?php
 	get_footer();

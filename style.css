@@ -22,6 +22,62 @@ body a {
   font-weight: bolder;
   color: #ff8877;
 }
+html input[type=text],
+body input[type=text],
+html textarea,
+body textarea,
+html select,
+body select {
+  width: 100%;
+  background: #f3f3f3;
+  border: 0px;
+}
+@media screen and (max-width: 1000px) {
+  html input[type=text],
+  body input[type=text],
+  html textarea,
+  body textarea,
+  html select,
+  body select {
+    background: white;
+  }
+}
+html .button,
+body .button,
+html button,
+body button,
+html input[type=button],
+body input[type=button],
+html input[type=reset],
+body input[type=reset],
+html input[type=submit],
+body input[type=submit] {
+  width: 100%;
+  background: black;
+  border: 0px;
+  color: white;
+}
+html .button:hover,
+body .button:hover,
+html button:hover,
+body button:hover,
+html input[type=button]:hover,
+body input[type=button]:hover,
+html input[type=reset]:hover,
+body input[type=reset]:hover,
+html input[type=submit]:hover,
+body input[type=submit]:hover {
+  color: #ff8877;
+}
+html hr,
+body hr {
+  padding: 0 0;
+  border: 0px;
+  background: #ff8877;
+  height: 2px;
+  width: 150px;
+  margin: 30px auto;
+}
 #whitesail {
   z-index: 100;
   position: fixed;
@@ -30,13 +86,58 @@ body a {
   background: #fff;
   pointer-events: none;
 }
+.rightpanel {
+  color: #5a5a5a;
+  z-index: 1;
+  transition-duration: 250ms;
+  padding-top: 70px;
+  height: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .rightpanel {
+    padding-top: 140px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .rightpanel .container.not-loop {
+    background: white;
+    padding: 40px;
+  }
+}
+.rightpanel .h2-comment {
+  padding-top: 60px;
+}
+.rightpanel .one-comment {
+  padding: 20px 0 0 20px;
+  background: #f3f3f3;
+  margin-bottom: 40px;
+}
+.rightpanel .one-comment .comment-author {
+  font-weight: bold;
+  font-size: 20px;
+  color: #ff8877;
+}
+@media screen and (max-width: 1000px) {
+  .rightpanel .one-comment {
+    background: white;
+    margin-bottom: 25px;
+  }
+}
 .leftpanel {
   z-index: 3;
-  position: fixed;
-  height: 100%;
   color: #ddd;
   background: #222;
+  position: fixed;
+  height: 100%;
   transition-duration: 500ms;
+}
+.leftpanel .img-header {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  border-radius: 50%;
+  margin-bottom: 30px;
+  background-size: contain;
 }
 .leftpanel a {
   color: #ddd;
@@ -61,7 +162,8 @@ body a {
   border-left: 6px solid black;
 }
 .leftpanel .leftpanel-section {
-  padding-top: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 .leftpanel .container-widget {
   padding: 12px 0;
@@ -74,7 +176,7 @@ body a {
 .leftpanel .container-widget ul li:before {
   font-family: FontAwesome;
   content: "\f105 ";
-  color: #e86f67;
+  color: #ff8877;
   font-size: 18px;
   margin-right: 10px;
 }
@@ -93,6 +195,11 @@ body a {
   font-weight: bolder;
   padding: 0 4px;
   border-left: 3px solid black;
+}
+.leftpanel .search-form-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 0px;
+  color: white;
 }
 .header-mobile {
   z-index: 2;
@@ -126,115 +233,77 @@ body a {
   top: 22px;
   left: 20px;
 }
-.rightpanel {
-  z-index: 1;
-  transition-duration: 250ms;
-  padding-top: 70px;
-  height: 100%;
-}
-@media screen and (max-width: 1000px) {
-  .rightpanel {
-    padding-top: 140px;
-  }
-}
 .article {
+  background: white;
   margin-bottom: 30px;
   height: 200px;
-  box-shadow: 1px 1px 2px #aaa;
-  background: white;
-  display: flex;
+  overflow: hidden;
 }
-.article hr {
-  margin: 3px 0;
-  padding: 0 0;
-  border: 0px;
-  height: 3px;
-  background: #ff8877;
+.article .content {
+  overflow: hidden;
+}
+.article .content .row {
+  padding: 10px 20px;
+  float: left;
+}
+.article .title-article {
+  color: inherit;
+  font-size: 20px;
+  white-space: nowrap;
 }
 .article .thumbnail {
   float: left;
-  max-width: 200px;
-  min-width: 200px;
-  max-height: 200px;
-  min-height: 200px;
-  overflow: hidden;
-  background: #e7e7e7;
+  background: #eee;
+  height: 200px;
+  width: 200px;
 }
 .article .thumbnail img {
-  width: 200px;
-  height: 200px;
-}
-.article .content {
   width: 100%;
-  height: 200px;
-  padding: 0 15px;
-}
-.article .content .main {
-  height: 165px;
-  color: #444;
-  overflow: hidden;
-}
-.article .content .main .article-title {
-  font-size: 30px;
-  overflow: hidden;
-  font-weight: lighter;
-  height: 45px;
-  display: block;
-}
-.article .content .main .article-title a {
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #444;
-}
-.article .content .secondary {
-  height: 35px;
-  overflow: hidden;
-  color: #aaa;
-}
-.article .content .secondary .date {
-  float: left;
-  font-weight: bolder;
-}
-.article .content .secondary .category,
-.article .content .secondary .comment {
-  float: right;
+  height: 100%;
 }
 @media screen and (max-width: 1000px) {
   .article {
     height: 100px;
-  }
-  .article hr {
-    display: none;
+    margin-bottom: 18px;
   }
   .article .thumbnail {
-    max-width: 100px;
-    min-width: 100px;
-    max-height: 100px;
-    min-height: 100px;
-  }
-  .article .thumbnail img {
+    height: 100px;
     width: 100px;
-    height: 100px;
   }
-  .article .content {
-    height: 100px;
+  .article .content .row {
+    padding: 5px 10px;
+    float: left;
   }
-  .article .content .main {
-    height: 65px;
+  .article .title-article {
+    color: inherit;
+    font-size: 17px;
+    white-space: nowrap;
   }
-  .article .content .main .article-content {
+}
+ul.list-info {
+  margin: 5px 0 0 10px;
+}
+ul.list-info li {
+  margin: 0 0;
+  list-style: none;
+  white-space: nowrap;
+}
+ul.list-info li:before {
+  font-family: FontAwesome;
+  content: "\f105 ";
+  color: #ff8877;
+  font-size: 18px;
+  margin-right: 10px;
+}
+@media screen and (max-width: 1000px) {
+  ul.list-info li.displaying-small-screen {
     display: none;
   }
-  .article .content .main .article-title {
-    font-size: 20px;
-    overflow: hidden;
-    font-weight: lighter;
+  ul.list-info ul,
+  ul.list-info ul li {
+    margin: 0 0 0 0;
   }
-  .article .content .secondary {
-    height: 35px;
-  }
-  .article .content .secondary .category {
-    display: none;
+  ul.list-info li {
+    font-size: 13px;
   }
 }

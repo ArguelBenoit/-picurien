@@ -33,8 +33,7 @@
 
 	<?php
 		get_header();
-		get_template_part('leftpanel');
+		get_template_part('templates/leftpanel');
 	?>
 
 	<div class="rightpanel">
-	  <div class="container">

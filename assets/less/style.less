@@ -26,6 +26,31 @@ html, body {
     font-weight: bolder;
     color: @lightOrange;
   }
+  input[type=text], textarea, select {
+    width: 100%;
+    background: @lighterGrey;
+    border: 0px;
+    @media screen and (max-width: 1000px) {
+      background: white;
+    }
+  }
+  .button, button, input[type=button], input[type=reset], input[type=submit] {
+    width: 100%;
+    background: black;
+    border: 0px;
+    color: white;
+    &:hover {
+      color: @lightOrange;
+    }
+  }
+  hr {
+    padding: 0 0;
+    border: 0px;
+    background: @lightOrange;
+    height: 2px;
+    width: 150px;
+    margin: 30px auto;
+  }
 }
 
 #whitesail {
@@ -37,13 +62,55 @@ html, body {
   pointer-events: none;
 }
 
+.rightpanel {
+  color: #5a5a5a;
+  z-index: 1;
+  transition-duration: 250ms;
+  padding-top: 70px;
+  height: 100%;
+  @media screen and (max-width: 1000px) {
+    padding-top: 140px;
+  }
+  @media screen and (min-width: 1000px) {
+    .container.not-loop {
+      background: white;
+      padding: 40px;
+    }
+  }
+  .h2-comment {
+    padding-top: 60px;
+  }
+  .one-comment {
+    padding: 20px 0 0 20px;
+    background: @lighterGrey;
+    margin-bottom: 40px;
+    .comment-author {
+      font-weight: bold;
+      font-size: 20px;
+      color: @lightOrange;
+    }
+    @media screen and (max-width: 1000px) {
+      background: white;
+      margin-bottom: 25px;
+    }
+  }
+}
+
 .leftpanel {
   z-index: 3;
-  position: fixed;
-  height: 100%;
   color: @lightGrey;
   background: @darkGrey;
+  position: fixed;
+  height: 100%;
   transition-duration: 500ms;
+  .img-header {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    background-size: contain;
+  }
   a {
     color: @lightGrey;
     text-decoration: none;
@@ -63,7 +130,8 @@ html, body {
     }
   }
   .leftpanel-section {
-    padding-top: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
   }
   .container-widget {
     padding: 12px 0;
@@ -75,7 +143,7 @@ html, body {
     ul li:before {
       font-family: FontAwesome;
       content: "\f105 ";
-      color: #e86f67;
+      color: @lightOrange;
       font-size: 18px;
       margin-right: 10px;
     }
@@ -95,6 +163,11 @@ html, body {
         border-left: 3px solid black;
       }
     }
+  }
+  .search-form-input {
+    background: rgba(255,255,255,0.1);
+    border: 0px;
+    color: white;
   }
 }
 
@@ -129,112 +202,71 @@ html, body {
   }
 }
 
-.rightpanel {
-  z-index: 1;
-  transition-duration: 250ms;
-  padding-top: 70px;
-  height: 100%;
-  @media screen and (max-width: 1000px) {
-    padding-top: 140px;
-  }
-}
-
 .article {
+  background: white;
   margin-bottom: 30px;
   height: 200px;
-  box-shadow: 1px 1px 2px #aaa;
-  background: white;
-  display: flex;
-  hr {
-    margin: 3px 0;
-    padding: 0 0;
-    border: 0px;
-    height: 3px;
-    background: @lightOrange;
+  overflow: hidden;
+  .content {
+    overflow: hidden;
+  }
+  .content .row {
+    padding: 10px 20px;
+    float: left;
+  }
+  .title-article {
+    color: inherit;
+    font-size: 20px;
+    white-space: nowrap;
   }
   .thumbnail {
     float: left;
-    max-width: 200px;
-    min-width: 200px;
-    max-height: 200px;
-    min-height: 200px;
-    overflow: hidden;
-    background: #e7e7e7;
-    img {
-      width: 200px;
-      height: 200px;
-    }
-  }
-  .content {
-    width: 100%;
+    background: #eee;
     height: 200px;
-    padding: 0 15px;
-    .main {
-      height: 165px;
-      overflow: hidden;
-      color: #444;
-      overflow: hidden;
-      .article-title {
-        font-size: 30px;
-        overflow: hidden;
-        font-weight: lighter;
-        height: 45px;
-        display: block;
-        a {
-          display: block;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          color: #444;
-        }
-      }
-    }
-    .secondary {
-      height: 35px;
-      overflow: hidden;
-      color: #aaa;
-      .date {
-        float: left;
-        font-weight: bolder;
-      }
-      .category, .comment {
-        float: right;
-      }
+    width: 200px;
+    img {
+      width: 100%;
+      height: 100%;
     }
   }
   @media screen and (max-width: 1000px) {
     height: 100px;
-    hr {
+    margin-bottom: 18px;
+    .thumbnail {
+      height: 100px;
+      width: 100px;
+    }
+    .content .row {
+      padding: 5px 10px;
+      float: left;
+    }
+    .title-article {
+      color: inherit;
+      font-size: 17px;
+      white-space: nowrap;
+    }
+  }
+}
+
+ul.list-info {
+  margin: 5px 0 0 10px;
+  li {
+    margin: 0 0;
+    list-style: none;
+    white-space: nowrap;
+  }
+  li:before {
+    font-family: FontAwesome;
+    content: "\f105 ";
+    color: @lightOrange;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  @media screen and (max-width: 1000px) {
+    li.displaying-small-screen {
       display: none;
     }
-    .thumbnail {
-      max-width: 100px;
-      min-width: 100px;
-      max-height: 100px;
-      min-height: 100px;
-      img {
-        width: 100px;
-        height: 100px;
-      }
-    }
-    .content {
-      height: 100px;
-      .main {
-        height: 65px;
-        .article-content {
-          display: none;
-        }
-        .article-title {
-          font-size: 20px;
-          overflow: hidden;
-          font-weight: lighter;
-        }
-      }
-      .secondary {
-        height: 35px;
-        .category {
-          display: none;
-        }
-      }
-    }
+    ul, ul li { margin: 0 0 0 0; }
+    li { font-size: 13px; }
   }
 }
