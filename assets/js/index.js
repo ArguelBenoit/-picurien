@@ -25,7 +25,7 @@ $(document).ready(() => {
   $('.menubutton').click(() => panelGestures.buttonClicked());
   $('.rightpanel').click(() => panelGestures.state.open ? panelGestures.buttonClicked() : '' );
 
-  $('.leftpanel a').click( e => {
+  $('.leftpanel #menu-mon-menu a').click( e => {
     $('#whitesail').fadeIn(800);
     setTimeout( () => window.location.href = e.target.href, 800);
     e.preventDefault();
