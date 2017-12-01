@@ -1,31 +1,44 @@
 import $ from 'jquery';
 
+
 const customScrollBar = (selector) => {
 
   const parent = $(selector);
   const child = $(selector).children();
-  let level = 0;
 
   parent.css({ 'overflow': 'hidden' });
-  child.css({ 'transition-duration': '300ms'});
+
+  // const scrollbarName = `scrollbar-${selector.substring(1, selector.length)}`;
+  // const scrollbarId = '#' + scrollbarName;
+  // $( '#' + scrollbarName ).remove();
+  // parent.append(`<div class="customScrollBar" id="${scrollbarName}"></div>`);
 
   const init = () => {
-    if (child.height() > parent.height()) {
-    //
-    //   parent.bind('mousewheel', evt => {
-    //     level += (evt.originalEvent.wheelDelta)/2;
-    //     if (level > 0)
-    //       level = 0;
-    //     else if (level < parent.height()-child.height())
-    //       level = parent.height()-child.height();
-    //     child.css('margin-top', level);
-    //   });
-    // } else {
-    //   parent.unbind('mousewheel');
-    //   child.css({ marginTop: 0 });
-    //   level = 0;
-    //   child.css('margin-top', level);
 
+    const parentHeight = parent.height();
+    const childHeight = child.outerHeight();
+    const parentFullSize =
+      (parentHeight - parseInt(parent.css('padding-top')));
+    let ToolDivHeight = 0;
+
+    const toolDivId = 'marginToolDiv_' + selector.substring(1, selector.length);
+    $( '#' + toolDivId ).remove();
+    parent.prepend(`<div id="${toolDivId}"></div>`);
+    $( '#' + toolDivId ).css({
+      'margin-top': 0,
+      'transition-duration': '200ms'
+    });
+
+    // $(scrollbarId).css({
+    //   background: color,
+    //   position: 'absolute',
+    //   top: 0,
+    //   width: width + 'px',
+    //   height: parentFullSize * (parentFullSize / child.height()),
+    //   left: parseInt(parent.css('margin-left')) + parent.outerWidth() - width
+    // });
+
+    if (child.outerHeight() > parent.height()) {
       let elementIsOver = false;
       $('body').bind('mousewheel', e => {
         if (elementIsOver) {
@@ -35,19 +48,20 @@ const customScrollBar = (selector) => {
           return false;
         }
       });
-
       parent.mouseenter( () => elementIsOver = true );
       parent.mouseleave( () => elementIsOver = false );
 
       parent.bind('mousewheel', evt => {
-        level += (evt.originalEvent.wheelDelta)/2;
-        if (level > 0)
-          level = 0;
-        else if (level < parent.height()-child.height())
-          level = parent.height()-child.height();
-        child.css('margin-top', level);
+        ToolDivHeight += evt.originalEvent.wheelDelta / 3;
+        if (ToolDivHeight > 0)
+          ToolDivHeight = 0;
+        else if (ToolDivHeight < parentFullSize - childHeight)
+          ToolDivHeight = parentFullSize - childHeight;
+        $( '#' + toolDivId ).css('margin-top', ToolDivHeight);
       });
 
+    } else {
+      parent.unbind('mousewheel');
     }
   };
 

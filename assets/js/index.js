@@ -11,7 +11,8 @@ $(document).ready(() => {
   // init
 
   panelGestures.panelsSize();
-  customScrollBar('.leftpanel');
+  customScrollBar('.leftpanel', '#000', 6);
+  customScrollBar('.rightpanel', '#ddd', 6);
 
   // resize
 
@@ -24,7 +25,7 @@ $(document).ready(() => {
   $('.menubutton').click(() => panelGestures.buttonClicked());
   $('.rightpanel').click(() => panelGestures.state.open ? panelGestures.buttonClicked() : '' );
 
-  $('a').click( e => {
+  $('.leftpanel a').click( e => {
     $('#whitesail').fadeIn(800);
     setTimeout( () => window.location.href = e.target.href, 800);
     e.preventDefault();

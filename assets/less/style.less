@@ -1,7 +1,7 @@
 /*
   Theme Name: Épicurien
   Theme URI: **
-  Description: One theme for one portfolio.
+  Description: **
   Version: 0.0.1
   Author: Benoit Arguel
   Author URI: **
@@ -21,6 +21,7 @@ html, body {
   margin: 0 0;
   padding: 0 0;
   background: @lighterGrey;
+  overflow: hidden;
   a {
     text-decoration: none;
     font-weight: bolder;
@@ -63,13 +64,13 @@ html, body {
 }
 
 .rightpanel {
+  height: 100%;
   color: #5a5a5a;
   z-index: 1;
-  transition-duration: 250ms;
-  padding-top: 70px;
-  height: 100%;
+  padding-top: 60px;
+  transition-duration: 100ms;
   @media screen and (max-width: 1000px) {
-    padding-top: 140px;
+    padding-top: 100px;
   }
   @media screen and (min-width: 1000px) {
     .container.not-loop {
@@ -99,7 +100,7 @@ html, body {
 .leftpanel {
   z-index: 3;
   color: @lightGrey;
-  background: @darkGrey;
+  background: url(img/pattern.png) ,@darkGrey;
   position: fixed;
   height: 100%;
   transition-duration: 500ms;
