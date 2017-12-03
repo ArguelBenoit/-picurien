@@ -17,11 +17,10 @@
 @mediumGrey: #333;
 
 html, body {
-  height: 100%;
   margin: 0 0;
   padding: 0 0;
   background: @lighterGrey;
-  overflow: hidden;
+  overflow-x: hidden;
   a {
     text-decoration: none;
     font-weight: bolder;
@@ -100,7 +99,7 @@ html, body {
 .leftpanel {
   z-index: 3;
   color: @lightGrey;
-  background: url(img/pattern.png) ,@darkGrey;
+  background: @darkGrey;
   position: fixed;
   height: 100%;
   transition-duration: 500ms;

@@ -8,11 +8,6 @@ const customScrollBar = (selector) => {
 
   parent.css({ 'overflow': 'hidden' });
 
-  // const scrollbarName = `scrollbar-${selector.substring(1, selector.length)}`;
-  // const scrollbarId = '#' + scrollbarName;
-  // $( '#' + scrollbarName ).remove();
-  // parent.append(`<div class="customScrollBar" id="${scrollbarName}"></div>`);
-
   const init = () => {
 
     const parentHeight = parent.height();
@@ -28,15 +23,6 @@ const customScrollBar = (selector) => {
       'margin-top': 0,
       'transition-duration': '200ms'
     });
-
-    // $(scrollbarId).css({
-    //   background: color,
-    //   position: 'absolute',
-    //   top: 0,
-    //   width: width + 'px',
-    //   height: parentFullSize * (parentFullSize / child.height()),
-    //   left: parseInt(parent.css('margin-left')) + parent.outerWidth() - width
-    // });
 
     if (child.outerHeight() > parent.height()) {
       let elementIsOver = false;
